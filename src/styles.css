@@ -1,3 +1,21 @@
 @import '@wk/components-angular15/all.min.css';
 @import '@wk/components-angular15/fonts.min.css';
 @import '@wk/components-angular15/iconsvg.min.css';
+
+:root {
+    /* COLORS */
+    --primary-color-gray: #474747;
+    --primary-color-gray-tint1: #757575;
+    --primary-color-gray-tint4: #DADADA;
+    --primary-color-gray-tint5: #EDEDED;
+    --primary-color-gray-tint6: #F6F6F6;
+
+    /* FONT WEIGHT */
+    --font-weight-medium: 500;
+    --font-weight-regular: 400;
+    --font-weight-light: 300;
+}
+
+body {
+    color: var(--primary-color-gray);
+}
