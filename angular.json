@@ -17,7 +17,9 @@
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "zone.js/plugins/webapis-media-query",
+              "zone.js/plugins/zone-patch-resize-observer"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
