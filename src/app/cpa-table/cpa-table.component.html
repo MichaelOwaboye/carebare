@@ -17,10 +17,10 @@
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr class="table-body-row">
-                    <td data-cell="dependant practioner name">Phillip Lawerence</td>
-                    <td data-cell="credentials">PharD</td>
+            <tbody *ngIf="cpaDummyData.length">
+                <tr *ngFor="let item of cpaDummyData || []" class="table-body-row">
+                    <td data-cell="dependant practioner name">{{item.dependantPractionerName}}</td>
+                    <td data-cell="credentials">{{item.credentials}}</td>
                     <td data-cell="actions">
                         <button-field [iconPosition]="'left'" [size]="'small'" [mode]="'text'">
                             <button type="button" [style.marginRight]="'5px'">
@@ -91,6 +91,9 @@
                     </td>
                 </tr>
             </tbody>
+            <div *ngIf="!cpaDummyData.length" class="no-content-message">
+                <p>No content to show, Please add New CPA</p>
+            </div>
         </table>
     </div>
 </section>

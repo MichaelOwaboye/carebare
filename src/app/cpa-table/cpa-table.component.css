@@ -52,3 +52,12 @@ tr.table-heading-row th {
     padding: .5rem 1rem .5rem .5rem;
     font-weight: var(--font-weight-rgular);
 }
+
+.no-content-message {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color-gray-tint5);
+}
