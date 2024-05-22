@@ -118,6 +118,9 @@
     bottom: 0;
     left: 0;
 }
-/* <li class="cpa-document-list-item">
-                <h3 class="list-item-title">Authority and purpose</h3>
-                <p class="list-item-text"> */
+
+.cpa-document-action-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
