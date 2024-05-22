@@ -30,11 +30,11 @@ export class CpaService {
     return response;
   }
 
-  getFrequences(): Observable<ConstantResponse[]> {
+  getConstants(): Observable<ConstantResponse> {
 
     const url = `${this.baseUrl}carepassconstants`;
 
-    var response = this._http.get<ConstantResponse[]>(url);
+    var response = this._http.get<ConstantResponse>(url);
     return response;
   }
 
@@ -50,7 +50,7 @@ export class CpaService {
 
   private getRequest(request: CPAAgreement) {
 
-    request.createdDate = new Date();
+    // request.createdDate = new Date();
     request.effectiveDate = new Date();
 
     console.log(request);

@@ -7,6 +7,13 @@
     background-color: #fff;
 }
 
+.cpa-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
 .cpa-document-header {
     display: flex;
     justify-content: space-between;

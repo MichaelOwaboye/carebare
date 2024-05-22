@@ -29,9 +29,9 @@ export interface CPAAgreement {
 }
 
 export interface ConstantResponse {
-    practitionerTypes:                Type[];
+    practitionerTypes:                PatientType[];
     states:                           State[];
-    patientTypes:                     Type[];
+    patientTypes:                     PatientType[];
     medicalConditions:                MedicalCondition[];
     protocols:                        MedicalCondition[];
     services:                         MedicalCondition[];
@@ -49,7 +49,7 @@ export interface MedicalCondition {
     value: string;
 }
 
-export interface Type {
+export interface PatientType {
     id:   number;
     type: string;
 }

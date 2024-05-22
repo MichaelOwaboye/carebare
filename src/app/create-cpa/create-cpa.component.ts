@@ -6,7 +6,7 @@ import { FormFieldErrorInfo } from '@wk/components-angular15';
 import { componentApi } from '@wk/components-angular15';
 import { importProvidersFrom } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { Practitioner } from '../Interfaces/Practitioner';
+import { MedicalCondition, PatientType, Practitioner } from '../Interfaces/Practitioner';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { last, tap } from 'rxjs';
 
@@ -22,6 +22,10 @@ export class CreateCpaComponent {
 
   practitioners: Practitioner[] = [];
   dependentPractitioners: Practitioner[] = [];
+  patientTypes: PatientType[] = [];
+  medicalConditionConst: MedicalCondition[] = [];
+  servicesConst: MedicalCondition[] = [];
+  protocols: MedicalCondition[] = [];
   cpaFormGroup: FormGroup;
 
   @ViewChild('selectedIndependentId') selectedIndependentId!: ElementRef<HTMLInputElement>;
@@ -67,6 +71,18 @@ export class CreateCpaComponent {
       }
     });
 
+    this._cpaService.getConstants().subscribe(res => {
+
+      if (res) {
+        
+        this.patientTypes = res.patientTypes;
+        this.medicalConditionConst = res.medicalConditions;
+        this.protocols = res.protocols;
+        this.servicesConst = res.services
+        
+      }
+    });
+
   }
 
   createCpa() {
@@ -74,7 +90,10 @@ export class CreateCpaComponent {
   }
 
   
-  
+  clearForm() {
+    this.cpaFormGroup.reset();
+  }
+
   getAllDependentPractitioner(){
 
     const selectIdValue = this.selectedIndependentId.nativeElement.value;
@@ -87,7 +106,7 @@ export class CreateCpaComponent {
 
       if (res) {
         this.dependentPractitioners = res;
-        console.log(res)
+        
       }
 
     });
@@ -97,8 +116,7 @@ export class CreateCpaComponent {
     console.log(this.cpaFormGroup.value);
     this._cpaService.createCPAAgreement(this.cpaFormGroup.value).subscribe(res => {
 
-      console.log("create response")
-      console.log(res);
+      this.clearForm();
     });
   }
 
