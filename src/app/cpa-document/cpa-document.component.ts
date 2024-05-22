@@ -6,13 +6,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { CPAAgreement, MedicalCondition, PatientType, Practitioner } from '../Interfaces/Practitioner';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-
-
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-cpa-document',
   standalone: true,
-  imports: [JumpstartComponentsModule],
+  imports: [JumpstartComponentsModule, RouterModule],
   templateUrl: './cpa-document.component.html',
   styleUrl: './cpa-document.component.css'
 })
