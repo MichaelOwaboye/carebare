@@ -1,4 +1,4 @@
-<div>
+<div class="cpa-document-section">
   <form [formGroup]="cpaFormGroup">
 
     <select-field label="Name of independent Practitioner" labelFor="independentPractitionerId">
@@ -7,13 +7,6 @@
           practitioner.lastName }}</option>
       </select>
     </select-field>
-
-    <!-- <select-field label="Dependent Title" labelFor="dPractitionerTitle">
-      <select formControlName="dPractitionerTitle" size="small">
-        <option *ngFor="let practitioner of dependentPractitioners" [value]="practitioner.id">{{ practitioner.credential }}
-        </option>
-      </select>
-    </select-field> -->
 
     <select-field label="Name of dependent Practitioner" labelFor="dependentPractitionerId">
       <select formControlName="dependentPractitionerId" size="small">

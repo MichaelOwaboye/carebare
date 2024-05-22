@@ -1,0 +1,14 @@
+.cpa-document-section {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 3.5rem;
+    margin-top: 3.5rem;
+    border: 1px solid var(--primary-color-gray-tint4);
+    background-color: #fff;
+}
+
+.cpa-document-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
