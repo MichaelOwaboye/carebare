@@ -1,7 +1,8 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { JumpstartComponentsModule } from '@wk/components-angular15';
 import { RouterModule } from '@angular/router';
+import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-banner',
@@ -10,8 +11,15 @@ import { RouterModule } from '@angular/router';
   templateUrl: './banner.component.html',
   styleUrl: './banner.component.css'
 })
-export class BannerComponent {
+export class BannerComponent implements OnInit {
   constructor(private changeDetector: ChangeDetectorRef) {}
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      const productNameElement = document.querySelector('.cg-banner-brand-parent') as HTMLElement;
+      productNameElement.style.color = '#425E10';
+    }, 0);
+  }
 
   logEvent(event: any) {
     console.log(event);
