@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef ,ViewChild} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { JumpstartComponentsModule } from '@wk/components-angular15';
 import { CpaService } from '../services/cpa.service';
@@ -8,7 +8,7 @@ import { importProvidersFrom } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { Practitioner } from '../Interfaces/Practitioner';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { last } from 'rxjs';
+import { last, tap } from 'rxjs';
 
 
 @Component({
@@ -23,6 +23,8 @@ export class CreateCpaComponent {
   practitioners: Practitioner[] = [];
   dependentPractitioners: Practitioner[] = [];
   cpaFormGroup: FormGroup;
+
+  @ViewChild('selectedIndependentId') selectedIndependentId!: ElementRef<HTMLInputElement>;
 
   constructor(private _cpaService: CpaService, formBuilder: FormBuilder) {
 
@@ -55,7 +57,7 @@ export class CreateCpaComponent {
 
   ngOnInit() {
 
-    this._cpaService.getIndependentPractioner().subscribe(res => {
+    this._cpaService.getIndependentPractitioner().subscribe(res => {
 
       if (res) {
         // console.log(res);
@@ -63,13 +65,41 @@ export class CreateCpaComponent {
         this.practitioners = res;
         // this.getfilteredItems(res)
       }
-
     });
 
   }
 
   createCpa() {
+    // console.log(this.cpaFormGroup.value);
+  }
+
+  
+  
+  getAllDependentPractitioner(){
+
+    const selectIdValue = this.selectedIndependentId.nativeElement.value;
+
+    if (selectIdValue.trim().length === 0) {
+      return;
+    }
+    
+    this._cpaService.getAllDependentPractitioner(Number(selectIdValue)).subscribe(res => {
+
+      if (res) {
+        this.dependentPractitioners = res;
+        console.log(res)
+      }
+
+    });
+  }
+
+  createCpaAgreement() {
     console.log(this.cpaFormGroup.value);
+    this._cpaService.createCPAAgreement(this.cpaFormGroup.value).subscribe(res => {
+
+      console.log("create response")
+      console.log(res);
+    });
   }
 
 

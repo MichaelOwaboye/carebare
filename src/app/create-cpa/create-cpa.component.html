@@ -1,25 +1,24 @@
 <div>
-  <form [formGroup]="cpaFormGroup" (ngSubmit)="createCpa()">
+  <form [formGroup]="cpaFormGroup">
 
     <select-field label="Name of independent Practitioner" labelFor="independentPractitionerId">
-      <select formControlName="independentPractitionerId" size="small">
+      <select (change)='getAllDependentPractitioner()'  #selectedIndependentId formControlName="independentPractitionerId" size="small">
         <option *ngFor="let practitioner of practitioners" [value]="practitioner.id">{{ practitioner.firstName }} {{
           practitioner.lastName }}</option>
       </select>
     </select-field>
 
-    <select-field label="Dependent Title" labelFor="dPractitionerTitle">
+    <!-- <select-field label="Dependent Title" labelFor="dPractitionerTitle">
       <select formControlName="dPractitionerTitle" size="small">
-        <option *ngFor="let practitioner of practitioners" [value]="practitioner.id">{{ practitioner.credential }}
+        <option *ngFor="let practitioner of dependentPractitioners" [value]="practitioner.id">{{ practitioner.credential }}
         </option>
       </select>
-    </select-field>
+    </select-field> -->
 
     <select-field label="Name of dependent Practitioner" labelFor="dependentPractitionerId">
       <select formControlName="dependentPractitionerId" size="small">
-        <option *ngFor="let practitioner of dependentPractitioners" [value]="practitioner.id">{{ practitioner.firstName
-          }} {{
-          practitioner.lastName }}</option>
+        <option *ngFor="let practitioner of dependentPractitioners" [value]="practitioner.id">{{ practitioner.firstName}} {{
+          practitioner.lastName }} - {{ practitioner.credential }}</option>
       </select>
     </select-field>
 
@@ -43,14 +42,17 @@
 
     <select-field label="Oversight Frequency" labelFor="oversightFrequency">
       <select formControlName="oversightFrequency" size="small">
-        <option *ngFor="let practitioner of practitioners" [value]="practitioner.id"></option>
+        <option value="Weekly">Weekly</option>
+        <option value="Monthly">Monthly</option>
+        <option value="Quarterly">Quarterly</option>
+        <option value="Annually">Annually</option>
       </select>
     </select-field>
 
 
 
     <button-field>
-      <button type="button" [style.marginRight]="'5px'" (click)="createCpa()">
+      <button type="button" [style.marginRight]="'5px'" (click)="createCpaAgreement()">
         Generate CPA
       </button>
     </button-field>
