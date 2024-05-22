@@ -112,5 +112,17 @@
                 </div>
             </li>
         </ol>
-    </main>
+    </main>    
+    <div class="cpa-document-action-buttons">
+        <button-field [iconPosition]="'left'">
+            <button [routerLink]="''" type="button">
+                <iconsvg name="save"></iconsvg>Save
+            </button>
+        </button-field>
+        <button-field [iconPosition]="'left'" [isDanger]="true">
+            <button [routerLink]="''" type="button">
+                <iconsvg name="close"></iconsvg>Close
+            </button>
+        </button-field>
+    </div>
 </section>
