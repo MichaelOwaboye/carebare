@@ -4,13 +4,13 @@
   <form id="create-cpa-form" [formGroup]="cpaFormGroup">
 
     <div class="form-fields-wrapper">
-      <select-field label="Name of independent Practitioner" labelFor="independentPractitionerId">
+      <select-field label="Name of Independent Practitioner" labelFor="independentPractitionerId">
         <select (change)='getAllDependentPractitioner()'  #selectedIndependentId formControlName="independentPractitionerId" size="small">
           <option *ngFor="let practitioner of practitioners" [value]="practitioner.id">{{ practitioner.firstName }} {{
             practitioner.lastName }}</option>
         </select>
       </select-field>
-      <select-field label="Name of dependent Practitioner" labelFor="dependentPractitionerId" placeholder="sts">
+      <select-field label="Name of Dependent Practitioner" labelFor="dependentPractitionerId" placeholder="sts">
         <select formControlName="dependentPractitionerId" size="small">
           <option *ngFor="let practitioner of dependentPractitioners" [value]="practitioner.id">{{ practitioner.firstName}} {{
             practitioner.lastName }} - {{ practitioner.credential }}</option>
@@ -45,7 +45,7 @@
         </select>
       </select-field>
       <div class="date-picker-wrapper">
-        <label for="date-picker">Select date</label>
+        <label for="date-picker">Select Date</label>
         <input type="date" name="date-picker" id="date-picker">
       </div>
     </div>
