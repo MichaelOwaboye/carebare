@@ -1,0 +1,66 @@
+<div>
+  <form [formGroup]="cpaFormGroup" (ngSubmit)="createCpa()">
+
+    <select-field label="Name of independent Practitioner" labelFor="independentPractitionerId">
+      <select formControlName="independentPractitionerId" size="small">
+        <option *ngFor="let practitioner of practitioners" [value]="practitioner.id">{{ practitioner.firstName }} {{
+          practitioner.lastName }}</option>
+      </select>
+    </select-field>
+
+    <select-field label="Dependent Title" labelFor="dPractitionerTitle">
+      <select formControlName="dPractitionerTitle" size="small">
+        <option *ngFor="let practitioner of practitioners" [value]="practitioner.id">{{ practitioner.credential }}
+        </option>
+      </select>
+    </select-field>
+
+    <select-field label="Name of dependent Practitioner" labelFor="dependentPractitionerId">
+      <select formControlName="dependentPractitionerId" size="small">
+        <option *ngFor="let practitioner of dependentPractitioners" [value]="practitioner.id">{{ practitioner.firstName
+          }} {{
+          practitioner.lastName }}</option>
+      </select>
+    </select-field>
+
+
+
+    <input-field label="Patients" labelFor="patients">
+      <input type="text" formControlName="patients" placeholder="Patients" />
+    </input-field>
+
+    <input-field label="Medical Conditions" labelFor="medicalConditions">
+      <input type="text" formControlName="medicalConditions" placeholder="Medical Conditions" />
+    </input-field>
+
+    <input-field label="Protocol" labelFor="protocol">
+      <input type="text" formControlName="protocol" placeholder="Protocol" />
+    </input-field>
+
+    <input-field label="Services" labelFor="Services">
+      <input type="text" formControlName="services" placeholder="Services" />
+    </input-field>
+
+    <select-field label="Oversight Frequency" labelFor="oversightFrequency">
+      <select formControlName="oversightFrequency" size="small">
+        <option *ngFor="let practitioner of practitioners" [value]="practitioner.id"></option>
+      </select>
+    </select-field>
+
+
+
+    <button-field>
+      <button type="button" [style.marginRight]="'5px'" (click)="createCpa()">
+        Generate CPA
+      </button>
+    </button-field>
+    <!-- <div [style.margin-top]="'50px'"></div> -->
+
+  </form>
+
+
+</div>
+
+<!-- <div>
+    {{ cpaFormGroup | json }}
+  </div> -->
