@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { JumpstartComponentsModule } from '@wk/components-angular15';
+import { Router } from '@angular/router';
 
 interface cpaData {
   dependantPractionerName: string;
@@ -17,6 +18,10 @@ interface cpaData {
 
 export class CPATableComponent {
 
+  constructor(
+    private router: Router
+  ) {}
+
   cpaDummyData: cpaData[] = [
     {
     "dependantPractionerName": "Phillip Lawerence",
@@ -31,4 +36,8 @@ export class CPATableComponent {
       "credentials": "Physicians Assistant"
     }
   ];
+
+  navigateToDocument(): void {
+    this.router.navigateByUrl('/cpa-document');
+  }
 }
