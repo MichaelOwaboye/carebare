@@ -2,13 +2,9 @@ import { Component, ElementRef ,ViewChild} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { JumpstartComponentsModule } from '@wk/components-angular15';
 import { CpaService } from '../services/cpa.service';
-import { FormFieldErrorInfo } from '@wk/components-angular15';
-import { componentApi } from '@wk/components-angular15';
-import { importProvidersFrom } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { MedicalCondition, PatientType, Practitioner } from '../Interfaces/Practitioner';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { last, tap } from 'rxjs';
 import { Router } from '@angular/router';
 
 
@@ -65,10 +61,7 @@ export class CreateCpaComponent {
     this._cpaService.getIndependentPractitioner().subscribe(res => {
 
       if (res) {
-        // console.log(res);
-        // this.practitioners = this.getfilteredItems(res, 'independent')
         this.practitioners = res;
-        // this.getfilteredItems(res)
       }
     });
 

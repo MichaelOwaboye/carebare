@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { JumpstartComponentsModule } from '@wk/components-angular15';
 import { Router } from '@angular/router';
+import { CpaService } from '../services/cpa.service';
+import { CPAAgreement } from '../Interfaces/Practitioner';
 
 interface cpaData {
   dependantPractionerName: string;
@@ -18,9 +20,23 @@ interface cpaData {
 
 export class CPATableComponent {
 
+  agreements: CPAAgreement[] = [];
+
+
   constructor(
-    private router: Router
+    private router: Router, private _cpaService: CpaService
   ) {}
+
+  ngOnInit() {
+
+    this._cpaService.getCPAAgreements().subscribe(res => {
+
+      if (res) {
+        this.agreements = res;
+      }
+    });   
+
+  }
 
   cpaDummyData: cpaData[] = [
     {
@@ -37,8 +53,9 @@ export class CPATableComponent {
     }
   ];
 
-  navigateToDocument(): void {
-    this.router.navigateByUrl('/cpa-document');
+  navigateToDocument(id: number): void {
+    this.router.navigateByUrl('/cpa-document?id=' + id);
+
   }
 
   navigateToCreateCPA(): void {

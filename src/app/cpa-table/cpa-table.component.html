@@ -12,18 +12,18 @@
         <table class="cpa-table">
             <thead>
                 <tr class="table-heading-row">
-                    <th>Dependant Practioner Name</th>
+                    <th>Practitioner Name</th>
                     <th>Credentials</th>
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody *ngIf="cpaDummyData.length">
-                <tr *ngFor="let item of cpaDummyData || []" class="table-body-row">
-                    <td data-cell="dependant practioner name">{{item.dependantPractionerName}}</td>
-                    <td data-cell="credentials">{{item.credentials}}</td>
+            <tbody *ngIf="agreements.length">
+                <tr *ngFor="let item of agreements || []" class="table-body-row">
+                    <td data-cell="dependant practioner name">{{item.dependentPractitioner.firstName}} {{item.dependentPractitioner.lastName}}</td>
+                    <td data-cell="credentials">{{item.dependentPractitioner.credential}}</td>
                     <td data-cell="actions">
                         <button-field [iconPosition]="'left'" [size]="'small'" [mode]="'text'">
-                            <button type="button" (click)="navigateToDocument()" [style.marginRight]="'5px'">
+                            <button type="button" (click)="navigateToDocument(item.dependentPractitioner.id)" [style.marginRight]="'5px'">
                                 <iconsvg name="visible">
                                 </iconsvg>View
                             </button>

@@ -43,17 +43,43 @@ export class CpaService {
   }
 
 
+  getCPAAgreements(): Observable<CPAAgreement[]> {
+    return this._http.get<CPAAgreement[]>(`${this.baseUrl}cpagreements`);
+  }
+
 
   createCPAAgreement(request: CPAAgreement): Observable<CPAAgreement> {
     return this._http.post<CPAAgreement>(`${this.baseUrl}cpagreements`, this.getRequest(request));
   }
 
   private getRequest(request: CPAAgreement) {
+    
+    var today = new Date();
+    var year = today.getFullYear();
+    var month = today.getMonth();
+    var day = today.getDate();
 
-    // request.createdDate = new Date();
-    request.effectiveDate = new Date();
+    var expires = new Date(year + 1, month, day);
+    
+    request.effectiveDate = this.formatDate(today);    
+    request.expiryDate = this.formatDate(expires);
 
+console.log("today" + today);
     console.log(request);
     return request;
+  }
+
+  formatDate(date: Date): string {
+    const pad = (number: number, length = 2) => number.toString().padStart(length, '0');
+
+    const year = date.getFullYear();
+    const month = pad(date.getMonth() + 1);
+    const day = pad(date.getDate());
+    // const hours = pad(date.getHours());
+    // const minutes = pad(date.getMinutes());
+    // const seconds = pad(date.getSeconds());
+    // const milliseconds = pad(date.getMilliseconds(), 3) + '000'; // Adding extra zeros for microseconds
+    // ${hours}:${minutes}:${seconds}.${milliseconds}
+    return `${year}-${month}-${day}`;
   }
 }

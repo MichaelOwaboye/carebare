@@ -8,7 +8,7 @@
                 <p class="name-care-pass">Care Pass</p>
             </div>
         </div>
-        <p class="cpa-document-text">-- CPA_ID --</p>
+        <p class="cpa-document-text">CPA_{{cpaId}} </p>
     </header>
     <main class="cpa-document-body">
         <h2 class="cpa-document-title">Collaborative Practice Agreement</h2>
@@ -16,7 +16,7 @@
             <!-- 1 -->
             <li class="cpa-document-list-item">
                 <h3 class="list-item-title">Authority and purpose</h3>
-                <p class="list-item-text">The Independent Practitioner named in Section 2, authorizes Dependent Practitioner(s) named in section 2, to treat patients pursuant to the parameters outlined in this agreement, in accordance with the laws and regulations of the State of <span class="cpa-parameter">-- CPA_Jurisdiction --</span></p>
+                <p class="list-item-text">The Independent Practitioner named in Section 2, authorizes Dependent Practitioner(s) named in section 2, to treat patients pursuant to the parameters outlined in this agreement, in accordance with the laws and regulations of the State of <span class="cpa-parameter"> {{ jurisdiction}}</span></p>
             </li>
             <!-- 2 -->
             <li class="cpa-document-list-item">
@@ -30,8 +30,8 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>-- FirstName -- -- LastName --, -- EducationCredential --</td>
-                            <td>-- FirstName -- -- LastName --, -- EducationCredential --</td>
+                            <td> {{ independentCompleteName}} , {{independentCredential}} </td>
+                            <td>{{ dependentCompleteName }} , {{ dependentCredential}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -39,7 +39,7 @@
             <!-- 3 -->
             <li class="cpa-document-list-item">
                 <h3 class="list-item-title">Patients</h3>
-                <p class="list-item-text">The following patients may be managed under this agreement: <span class="cpa-parameter">-- CPA_Patients --</span></p>
+                <p class="list-item-text">The following patients may be managed under this agreement: <span class="cpa-parameter"> {{ cpaPatients }} </span></p>
             </li>
             <!-- 4 -->
             <li class="cpa-document-list-item">
@@ -47,15 +47,15 @@
                 <ol class="cpa-document-content-list2">
                     <li class="cpa-document-list2-item">
                         <h4 class="list2-item-title">Medical conditions:</h4>
-                        <p class="list2-item-text">Dependent Practitioners may treat patients for the following medical conditions: <span class="cpa-parameter">-- CPA_Medical_Conditions --</span></p>
+                        <p class="list2-item-text">Dependent Practitioners may treat patients for the following medical conditions: <span class="cpa-parameter"> {{ medicalConditions }} </span></p>
                     </li>
                     <li class="cpa-document-list2-item">
                         <h4 class="list2-item-title">Treatment protocol:</h4>
-                        <p class="list2-item-text">Dependent Practitioners shall utilize the following guidance when providing care: <span class="cpa-parameter">-- CPA_Protocol --</span></p>
+                        <p class="list2-item-text">Dependent Practitioners shall utilize the following guidance when providing care: <span class="cpa-parameter"> {{ protocol }} </span></p>
                     </li>
                     <li class="cpa-document-list2-item">
                         <h4 class="list2-item-title">Authorized services:</h4>
-                        <p class="list2-item-text">Dependent Practitioners may perform the services below, in accordance with 4(a) and 4(b) and limited to the scope of the Dependent Practitioner’s education, training, and experience: <span class="cpa-parameter">-- CPA_Services --</span></p>
+                        <p class="list2-item-text">Dependent Practitioners may perform the services below, in accordance with 4(a) and 4(b) and limited to the scope of the Dependent Practitioner’s education, training, and experience: <span class="cpa-parameter"> {{ services }} </span></p>
                     </li>
                     <li class="cpa-document-list2-item">
                         <h4 class="list2-item-title">Treatment arbitration:</h4>
@@ -88,27 +88,27 @@
             <li class="cpa-document-list-item">
                 <h3 class="list-item-title">Communication and oversight</h3>
                 <p class="list-item-text">Upon completion of initial assessment for each new patient, and at least annually for each established patient, the Dependent Practitioner shall notify the Independent Practitioner of services provided under Section 4.</p>
-                <p class="list-item-text">In order to assess clinical quality, the Dependent Practitioner shall review a representative sample of care provided under this agreement <span class="cpa-parameter">-- CPA_Oversight_Frequency --</span></p>
+                <p class="list-item-text">In order to assess clinical quality, the Dependent Practitioner shall review a representative sample of care provided under this agreement <span class="cpa-parameter"> {{ frequecy }} </span></p>
             </li>
             <!-- 10 -->
             <li class="cpa-document-list-item">
                 <h3 class="list-item-title">Expiration and rescindment</h3>
-                <p class="list-item-text">This agreement expires 1 year from the initial effective date of <span class="cpa-parameter">-- Effective_Date --</span>.  Any party may rescind this agreement prior to the expiration date, for any reason, by providing written documentation.  Parties shall facilitate care coordination for existing patient to prevent care disruption.</p>
+                <p class="list-item-text">This agreement expires 1 year from the initial effective date of <span class="cpa-parameter"> {{effectiveDate}} </span>.  Any party may rescind this agreement prior to the expiration date, for any reason, by providing written documentation.  Parties shall facilitate care coordination for existing patient to prevent care disruption.</p>
             </li>
             <!-- 11 -->
             <li class="cpa-document-list-item">
                 <h3 class="list-item-title">Signatures</h3>
                 <h4 class="list2-item-title">Independent practitioner</h4>
                 <div class="signature-wrapper">
-                    <p class="list-item-text">-- FirstName -- -- LastName --, -- EducationCredential --</p>
+                    <p class="list-item-text">{{independentCompleteName }}, {{ independentCredential}} </p>
                     <p class="list-item-text">-- (Signature) --</p>
-                    <p class="list-item-text">-- (Date) --</p>
+                    <p class="list-item-text"> {{ creationDate }} </p>
                 </div>
                 <h4 class="list2-item-title">Dependent practitioner</h4>
                 <div class="signature-wrapper">
-                    <p class="list-item-text">-- FirstName -- -- LastName --, -- EducationCredential --</p>
+                    <p class="list-item-text">{{dependentCompleteName }}, {{ dependentCredential}}</p>
                     <p class="list-item-text">-- (Signature) --</p>
-                    <p class="list-item-text">-- (Date) --</p>
+                    <p class="list-item-text"> {{ creationDate }} </p>
                 </div>
             </li>
         </ol>
