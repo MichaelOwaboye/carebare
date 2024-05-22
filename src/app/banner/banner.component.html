@@ -1,36 +1,17 @@
 <div [ngClass]="'cg-story'">
     <banner mode="research">
-        <banner-brand-suite (brandClick)="logEvent('brand click')" href="#"
+        <banner-brand-suite [routerLink]="'/'" (brandClick)="logEvent('brand click')" href="#"
             srLabel="Go to Wolters Kluwer Care Pass X home page" [isPreventDefault]="true" *bannerBrandSuite>
             <banner-brand-logo *bannerBrandLogo>
             </banner-brand-logo>
             <banner-brand-inline productName="Care Pass" *bannerBrand>
             </banner-brand-inline>
         </banner-brand-suite>
-        <!-- <banner-search *bannerSearch>
-            <div *bannerSearchMobile>
-                <button-field-icon size="large24px">
-                    <button (click)="logEvent('open search')" type="button" id="searchMobile">
-                        <iconsvg name="search">
-                        </iconsvg>
-                        <iconsvg name="search" [isFill]="true">
-                        </iconsvg>
-                        <sr-only>Open search</sr-only>
-                    </button>
-                </button-field-icon>
-            </div>
-            <div *bannerSearchDefault>
-                <search-field (search)="logEvent('run search')" mode="secondary" searchButton="inlay-left">
-                    <input (keydown)="searchOnKeyDown($event)" type="search" id="search-id-001" name="search-001"
-                        placeholder="Search everything" />
-                </search-field>
-            </div>
-        </banner-search> -->
         <banner-right *bannerRight>
             <button-group [threshold]="272" dropdownToggleMode="gray">
                 <banner-action-bar-item *buttonGroupItem>
                     <button-field [mode]="'text'" [iconPosition]="'left'">
-                        <a (click)="logEvent('history')" href="#" aria-current="page">
+                        <a [routerLink]="'/'" (click)="logEvent('history')" href="#" aria-current="page">
                             <iconsvg name="customers">
                             </iconsvg>Collaborative Practice Agreement
                         </a>
@@ -44,15 +25,7 @@
                         </a>
                     </button-field>
                 </banner-action-bar-item>
-                <!-- <banner-action-bar-item *buttonGroupItem>
-                    <button-field [mode]="'text'" [iconPosition]="'left'">
-                        <a (click)="logEvent('notifications')" href="#">
-                            <iconsvg name="alarm-on">
-                            </iconsvg>Notifications
-                        </a>
-                    </button-field>
-                </banner-action-bar-item> -->
-                <dropdown-list-anchor-item (itemClick)="logEvent('history')" [srCurrent]="'page'"
+                <dropdown-list-anchor-item [routerLink]="'/'" (itemClick)="logEvent('history')" [srCurrent]="'page'"
                     *buttonGroupDropdownListItem>
                     <iconsvg name="customers">
                     </iconsvg>Collaborative Practice Agreement
@@ -61,19 +34,7 @@
                     <iconsvg name="book-page">
                     </iconsvg>Oversight
                 </dropdown-list-anchor-item>
-                <!-- <dropdown-list-anchor-item (itemClick)="logEvent('notifications')" *buttonGroupDropdownListItem>
-                    <iconsvg name="alarm-on">
-                    </iconsvg>Notifications
-                </dropdown-list-anchor-item> -->
             </button-group>
-            <!-- <banner-status status="ok">
-            </banner-status> -->
-            <!-- <fishbowl (fishbowlClick)="logEvent('fishbowl')" userName="James T. Kirk"
-                organizationName="Starfleet Command"
-                organizationImgSrc="https://images2.wikia.nocookie.net/__cb20071211170161/startrek/images/5/56/Enterprise_cmd_insignia.jpg">
-                <img alt="Captain James T. Kirk"
-                    src="https://cogen-testing-resources.s3.amazonaws.com/CaptanKirk.webp" />
-            </fishbowl> -->
         </banner-right>
     </banner>
 </div>

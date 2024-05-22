@@ -23,7 +23,7 @@
                     <td data-cell="credentials">{{item.credentials}}</td>
                     <td data-cell="actions">
                         <button-field [iconPosition]="'left'" [size]="'small'" [mode]="'text'">
-                            <button type="button" [style.marginRight]="'5px'">
+                            <button type="button" (click)="navigateToDocument()" [style.marginRight]="'5px'">
                                 <iconsvg name="visible">
                                 </iconsvg>View
                             </button>
@@ -41,55 +41,7 @@
                             </button>
                         </button-field>
                     </td>
-                </tr>
-                <tr class="table-body-row">
-                    <td data-cell="dependant practioner name">Henri Severin</td>
-                    <td data-cell="credentials">Nurse Practioner</td>
-                    <td data-cell="actions">
-                        <button-field [iconPosition]="'left'" [size]="'small'" [mode]="'text'">
-                            <button type="button" [style.marginRight]="'5px'">
-                                <iconsvg name="visible">
-                                </iconsvg>View
-                            </button>
-                        </button-field>
-                        <button-field [iconPosition]="'left'" [size]="'small'" [mode]="'text'">
-                            <button type="button" [style.marginRight]="'5px'">
-                                <iconsvg name="pencil">
-                                </iconsvg>Renew
-                            </button>
-                        </button-field>
-                        <button-field [iconPosition]="'left'" [isDanger]="true" [size]="'small'" [mode]="'text'">
-                            <button type="button" [style.marginRight]="'5px'">
-                                <iconsvg name="trash">
-                                </iconsvg>Rescind
-                            </button>
-                        </button-field>
-                    </td>
-                </tr>
-                <tr class="table-body-row">
-                    <td data-cell="dependant practioner name">Olga Severin</td>
-                    <td data-cell="credentials">Physicians Assistant</td>
-                    <td data-cell="actions">
-                        <button-field [iconPosition]="'left'" [size]="'small'" [mode]="'text'">
-                            <button type="button" [style.marginRight]="'5px'">
-                                <iconsvg name="visible">
-                                </iconsvg>View
-                            </button>
-                        </button-field>
-                        <button-field [iconPosition]="'left'" [size]="'small'" [mode]="'text'">
-                            <button type="button" [style.marginRight]="'5px'">
-                                <iconsvg name="pencil">
-                                </iconsvg>Renew
-                            </button>
-                        </button-field>
-                        <button-field [iconPosition]="'left'" [isDanger]="true" [size]="'small'" [mode]="'text'">
-                            <button type="button" [style.marginRight]="'5px'">
-                                <iconsvg name="trash">
-                                </iconsvg>Rescind
-                            </button>
-                        </button-field>
-                    </td>
-                </tr>
+                </tr> 
             </tbody>
             <div *ngIf="!cpaDummyData.length" class="no-content-message">
                 <p>No content to show, Please add New CPA</p>
