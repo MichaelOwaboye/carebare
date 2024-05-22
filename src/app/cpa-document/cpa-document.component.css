@@ -124,4 +124,12 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
+
+    position: sticky;
+    z-index: 99;
+    bottom: 2rem;
+}
+
+.cpa-document-action-buttons > * {
+    box-shadow: 0 0.5rem 1rem 0.5rem rgba(0, 0, 0, 0.1);
 }
