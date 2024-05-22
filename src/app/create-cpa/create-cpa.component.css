@@ -7,15 +7,56 @@
     background-color: #fff;
 }
 
-.cpa-table-header {
+.cgenerate-cpa-button-wrapper {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
 }
 
 .cpa-document-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.form-fields-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+    row-gap: 1rem;
+}
+
+@media only screen and (max-width: 1023px) {
+    .form-fields-wrapper {
+        display: block;
+    }
+}
+
+.date-picker-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.date-picker-wrapper label {
+    font-size: .875rem;
+    font-weight: var(--font-weight-medium);
+}
+
+.date-picker-wrapper input[type="date"] {
+    padding: 8px 12px 8px 8px;
+    font-size: 1rem;
+    border: 1px solid var(--primary-color-gray-tint1);
+    font-family: inherit;
+}
+
+.date-picker-wrapper input[type="date"]:hover {
+    border-color: var(--primary-color-blue-shade1);
+    box-shadow: inset 0 0 0 .0625rem var(--primary-color-blue-shade1);
+    outline: 0;
+}
+
+.date-picker-wrapper input[type="date"]:focus {
+    border-color: #000;
+    box-shadow: inset 0 0 0 .0625rem #000;
+    outline: 0;
 }

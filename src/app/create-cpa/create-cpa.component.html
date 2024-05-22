@@ -1,56 +1,54 @@
 <div class="cpa-document-section">
   <h3 class="cpa-table-title">Create Collaborative Practice Agreement</h3>
 
-  <form [formGroup]="cpaFormGroup">
+  <form id="create-cpa-form" [formGroup]="cpaFormGroup">
 
-    <select-field label="Name of independent Practitioner" labelFor="independentPractitionerId">
-      <select (change)='getAllDependentPractitioner()'  #selectedIndependentId formControlName="independentPractitionerId" size="small">
-        <option *ngFor="let practitioner of practitioners" [value]="practitioner.id">{{ practitioner.firstName }} {{
-          practitioner.lastName }}</option>
-      </select>
-    </select-field>
-
-    <select-field label="Name of dependent Practitioner" labelFor="dependentPractitionerId" placeholder="sts">
-      <select formControlName="dependentPractitionerId" size="small">
-        <option *ngFor="let practitioner of dependentPractitioners" [value]="practitioner.id">{{ practitioner.firstName}} {{
-          practitioner.lastName }} - {{ practitioner.credential }}</option>
-      </select>
-    </select-field>
-
-
-
-    <select-field label="Patients" labelFor="patients">
-      <select formControlName="patients" size="small">
-        <option *ngFor="let item of patientTypes" [value]="item.type">{{ item.type}}</option>
-      </select>
-    </select-field>
-
-    <select-field label="Medical Conditions" labelFor="medicalConditions">
-      <select formControlName="medicalConditions" size="small">
-        <option *ngFor="let item of medicalConditionConst" [value]="item.value">{{ item.value}}</option>
-      </select>
-    </select-field>
-
-    <select-field label="Protocol" labelFor="protocol">
-      <select formControlName="protocol" size="small">
-        <option *ngFor="let item of protocols" [value]="item.value">{{ item.value}}</option>
-      </select>
-    </select-field>
-
-    <select-field label="Services" labelFor="services">
-      <select formControlName="services" size="small">
-        <option *ngFor="let item of servicesConst" [value]="item.value">{{ item.value}}</option>
-      </select>
-    </select-field>
-
-    <select-field label="Oversight Frequency" labelFor="oversightFrequency">
-      <select formControlName="oversightFrequency" size="small">
-        <option value="Weekly">Weekly</option>
-        <option value="Monthly">Monthly</option>
-        <option value="Quarterly">Quarterly</option>
-        <option value="Annually">Annually</option>
-      </select>
-    </select-field>
+    <div class="form-fields-wrapper">
+      <select-field label="Name of independent Practitioner" labelFor="independentPractitionerId">
+        <select (change)='getAllDependentPractitioner()'  #selectedIndependentId formControlName="independentPractitionerId" size="small">
+          <option *ngFor="let practitioner of practitioners" [value]="practitioner.id">{{ practitioner.firstName }} {{
+            practitioner.lastName }}</option>
+        </select>
+      </select-field>
+      <select-field label="Name of dependent Practitioner" labelFor="dependentPractitionerId" placeholder="sts">
+        <select formControlName="dependentPractitionerId" size="small">
+          <option *ngFor="let practitioner of dependentPractitioners" [value]="practitioner.id">{{ practitioner.firstName}} {{
+            practitioner.lastName }} - {{ practitioner.credential }}</option>
+        </select>
+      </select-field>
+      <select-field label="Patients" labelFor="patients">
+        <select formControlName="patients" size="small">
+          <option *ngFor="let item of patientTypes" [value]="item.type">{{ item.type}}</option>
+        </select>
+      </select-field>
+      <select-field label="Medical Conditions" labelFor="medicalConditions">
+        <select formControlName="medicalConditions" size="small">
+          <option *ngFor="let item of medicalConditionConst" [value]="item.value">{{ item.value}}</option>
+        </select>
+      </select-field>
+      <select-field label="Protocol" labelFor="protocol">
+        <select formControlName="protocol" size="small">
+          <option *ngFor="let item of protocols" [value]="item.value">{{ item.value}}</option>
+        </select>
+      </select-field>
+      <select-field label="Services" labelFor="services">
+        <select formControlName="services" size="small">
+          <option *ngFor="let item of servicesConst" [value]="item.value">{{ item.value}}</option>
+        </select>
+      </select-field>
+      <select-field label="Oversight Frequency" labelFor="oversightFrequency">
+        <select formControlName="oversightFrequency" size="small">
+          <option value="Weekly">Weekly</option>
+          <option value="Monthly">Monthly</option>
+          <option value="Quarterly">Quarterly</option>
+          <option value="Annually">Annually</option>
+        </select>
+      </select-field>
+      <div class="date-picker-wrapper">
+        <label for="date-picker">Select date</label>
+        <input type="date" name="date-picker" id="date-picker">
+      </div>
+    </div>
 
 
 
@@ -61,14 +59,13 @@
     </button-field> -->
 
 
-    <div class="cpa-table-header">
-      <h3 class="cpa-table-title"></h3>
+    <div class="cgenerate-cpa-button-wrapper">
       <button-field [iconPosition]="'left'" (click)="createCpaAgreement()">
-          <button type="button" [style.marginRight]="'5px'">              
+          <button type="button">              
               Generate CPA
           </button>
       </button-field>
-  </div>
+    </div>
 
     <!-- <div [style.margin-top]="'50px'"></div> -->
 

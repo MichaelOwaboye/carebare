@@ -4,11 +4,16 @@
 
 :root {
     /* COLORS */
+    /* --- gray --- */
     --primary-color-gray: #474747;
     --primary-color-gray-tint1: #757575;
     --primary-color-gray-tint4: #DADADA;
     --primary-color-gray-tint5: #EDEDED;
     --primary-color-gray-tint6: #F6F6F6;
+    
+    /* --- blue --- */
+    --primary-color-blue-shade1: #005B92;
+
 
     /* FONT WEIGHT */
     --font-weight-medium: 500;
