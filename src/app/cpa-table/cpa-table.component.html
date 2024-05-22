@@ -2,7 +2,7 @@
     <div class="cpa-table-header">
         <h3 class="cpa-table-title">Collaborative Practice Agreement in Place</h3>
         <button-field [iconPosition]="'left'">
-            <button type="button" [style.marginRight]="'5px'">
+            <button type="button" (click)="navigateToCreateCPA()" [style.marginRight]="'5px'">
                 <iconsvg name="plus" [isFill]="true"></iconsvg>
                 New CPA
             </button>

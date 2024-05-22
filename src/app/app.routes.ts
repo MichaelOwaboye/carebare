@@ -7,7 +7,7 @@ export const routes: Routes = [
     {
         path: '',
         component: CPATableComponent
-    },
+    },    
     {
         path: 'cpa-document',
         component: CPADocumentComponent

@@ -40,4 +40,8 @@ export class CPATableComponent {
   navigateToDocument(): void {
     this.router.navigateByUrl('/cpa-document');
   }
+
+  navigateToCreateCPA(): void {
+    this.router.navigateByUrl('/create-cpa');
+  }
 }

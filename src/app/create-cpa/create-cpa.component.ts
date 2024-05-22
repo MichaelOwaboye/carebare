@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MedicalCondition, PatientType, Practitioner } from '../Interfaces/Practitioner';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { last, tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -30,7 +31,7 @@ export class CreateCpaComponent {
 
   @ViewChild('selectedIndependentId') selectedIndependentId!: ElementRef<HTMLInputElement>;
 
-  constructor(private _cpaService: CpaService, formBuilder: FormBuilder) {
+  constructor(private _cpaService: CpaService, formBuilder: FormBuilder, private router: Router) {
 
     // this.cpaFormGroup = formBuilder.group({
     //   firstName: ['', [Validators.required, Validators.minLength(2)]],
